@@ -1,0 +1,18 @@
+<!--博客标签主页-->
+{% extends 'blog/blog_list.html' %}
+
+{# 页面标题 #}
+{% block title %}
+    {{ blog_type.type_name }}
+{% endblock %}
+
+
+{% block nav_blog_active %}active{% endblock %}
+
+
+
+{% block blog_list_titile %}
+    日期分类: {{ blogs_with_date }}
+    <a href="{% url 'blog_list' %}">查看全部博客</a>
+{% endblock %}
+

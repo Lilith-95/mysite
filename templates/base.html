@@ -1,0 +1,63 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+    <script type="text/javascript" src="{% static 'stop.min.js' %}"></script>
+    <style>
+        .demo{width:360px;margin:60px auto 10px auto}
+        .demo p{padding:10px 0}
+    </style>
+    
+    {% block header_extends %}{% endblock %}
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                 <a class="navbar-brand" href="{% url 'home' %}">
+                    个人博客网站
+                 </a>
+                 <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                 </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="{% block nav_home_active %}{% endblock %}">
+                        <a href="/">首页</a>
+                    </li> {# {% url 'home' %} 相同#}
+                    <li class="{% block nav_blog_active %}{% endblock %}">
+                        <a href="{% url 'blog_list' %}">博客</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+    
+</body>
+ <div class="demo">
+        <p><strong></strong></p>
+        <div id="player1">
+            <pre class="aplayer-lrc-content">
+                
+            </pre>
+        </div>
+    </div>
+  <!--hexo canvas-->
+    <script type="text/javascript" src="{% static 'xing.min.js' %}"></script>
+    <script type="text/javascript" color="213,185,197" opacity='0.7' zIndex="-2" count="250" src="{% static 'canvas-nest.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'music.min.js' %}"></script>
+</html>

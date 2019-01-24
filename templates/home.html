@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{# 页面标题 #}
+{% block title %}
+    我的网站|首页
+{% endblock %}
+    
+
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'home.css'%}">
+{% endblock %}
+
+
+{% block nav_home_active %}active{% endblock %}
+
+
+{# 页面内容 #}
+{% block content %}
+<div class="container">  
+      <div id="bg">  
+        <a href="{% url 'blog_list' %}"><img src="{% static 'img/maxresdefault.jpg' %}" >  
+      </div>  
+      <div>  
+
+</div>
+	
+ {% endblock %}
+   
